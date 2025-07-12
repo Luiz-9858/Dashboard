@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Dashboard de Estudos</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <header class="dashboard-header">
+        <h1>Meu Progresso de Estudos</h1>
+        <div class="date-display" id="current-date"></div>
+    </header>
+
+    <main class="dashboard-container">
+        <section class="summary-cards">
+            <div class="card" id="english-card">
+                <h2><img src="icons/stack-of-books.png" alt=""> Inglês</h2>
+                <div class="progress-circle" id="english-progress"></div>
+                <p id="english-hours">2.0/20 horas semanais</p>
+            </div>
+            
+            <div class="card" id="code-card">
+                <h2><img src="icons/software.png" alt=""> Programação</h2>
+                <div class="progress-circle" id="code-progress"></div>
+                <p id="code-hours">0/15 horas semanais</p>
+            </div>
+            
+            <div class="card" id="figma-card">
+                <h2><img src="icons/figma.png" alt=""> Figma</h2>
+                <div class="progress-circle" id="figma-progress"></div>
+                <p id="figma-hours">0/10 horas semanais</p>
+            </div>
+        </section>
+
+        <section class="add-hours-form">
+            <h3>Registrar Horas Estudadas</h3>
+            <form id="study-form">
+                <select id="study-category">
+                    <option value="english">Inglês</option>
+                    <option value="coding">Programação</option>
+                    <option value="figma">Figma</option>
+                </select>
+                <input type="number" id="study-hours" step="0.5" min="0.5" max="10" placeholder="Horas">
+                <button type="submit">Adicionar</button>
+            </form>
+        </section>
+
+        <section class="charts-section">
+            <div class="chart-container">
+                <h2>Progresso Semanal</h2>
+                <canvas id="weekly-chart"></canvas>
+            </div>
+            
+            <div class="chart-container">
+                <h2>Distribuição de Tempo</h2>
+                <canvas id="distribution-chart"></canvas>
+            </div>
+        </section>
+
+        <section class="goals-section">
+            <h2>Metas do Mês</h2>
+            <ul id="goals-list"></ul>
+            <form id="add-goal-form">
+                <input type="text" id="new-goal" placeholder="Nova meta..." required>
+                <button type="submit">Adicionar Meta</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/progress.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
