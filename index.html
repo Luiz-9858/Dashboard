@@ -1,82 +1,172 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Dashboard de Estudos</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/variables.css">
-    <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <title>Dashboard Personalizado</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header class="dashboard-header">
-        <h1>Meu Progresso de Estudos</h1>
-        <div class="date-display" id="current-date"></div>
-    </header>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">Dashboard</div>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <nav>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link active" data-page="overview">
+                        <i class="fas fa-home"></i>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="analytics">
+                        <i class="fas fa-chart-line"></i>
+                        <span class="nav-text">Analytics</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="projects">
+                        <i class="fas fa-folder"></i>
+                        <span class="nav-text">Projetos</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="tasks">
+                        <i class="fas fa-tasks"></i>
+                        <span class="nav-text">Tarefas</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="calendar">
+                        <i class="fas fa-calendar"></i>
+                        <span class="nav-text">Calendário</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="settings">
+                        <i class="fas fa-cog"></i>
+                        <span class="nav-text">Configurações</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 
-    <main class="dashboard-container">
-        <section class="summary-cards">
-            <div class="card" id="english-card">
-                <h2><img src="icons/stack-of-books.png" alt=""> Inglês</h2>
-                <div class="progress-circle" id="english-progress"></div>
-                <p id="english-hours">2.0/20 horas semanais</p>
+    <div class="main-content">
+        <header class="header">
+            <div class="page-info">
+                <h1 id="pageTitle">Dashboard</h1>
+                <p id="pageSubtitle">Acompanhe seu progresso e produtividade</p>
             </div>
-            
-            <div class="card" id="code-card">
-                <h2><img src="icons/software.png" alt=""> Programação</h2>
-                <div class="progress-circle" id="code-progress"></div>
-                <p id="code-hours">0/15 horas semanais</p>
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
             </div>
-            
-            <div class="card" id="figma-card">
-                <h2><img src="icons/figma.png" alt=""> Figma</h2>
-                <div class="progress-circle" id="figma-progress"></div>
-                <p id="figma-hours">0/10 horas semanais</p>
-            </div>
-        </section>
+        </header>
 
-        <section class="add-hours-form">
-            <h3>Registrar Horas Estudadas</h3>
-            <form id="study-form">
-                <select id="study-category">
-                    <option value="english">Inglês</option>
-                    <option value="coding">Programação</option>
-                    <option value="figma">Figma</option>
-                </select>
-                <input type="number" id="study-hours" step="0.5" min="0.5" max="10" placeholder="Horas">
-                <button type="submit">Adicionar</button>
-            </form>
-        </section>
+        <main class="content">
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon primary">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                    </div>
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">Horas de Estudo</div>
+                    <div class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i>
+                        <span class="change-value">+12%</span>
+                    </div>
+                </div>
 
-        <section class="charts-section">
-            <div class="chart-container">
-                <h2>Progresso Semanal</h2>
-                <canvas id="weekly-chart"></canvas>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon success">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                    </div>
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">Sequência</div>
+                    <div class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i>
+                        <span class="change-value">+3 dias</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon warning">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                    </div>
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">Projetos</div>
+                    <div class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i>
+                        <span class="change-value">+2</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon danger">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                    </div>
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">Conclusão</div>
+                    <div class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i>
+                        <span class="change-value">+5%</span>
+                    </div>
+                </div>
             </div>
-            
-            <div class="chart-container">
-                <h2>Distribuição de Tempo</h2>
-                <canvas id="distribution-chart"></canvas>
+
+            <!-- Charts Section -->
+            <div class="charts-section">
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h3>Progresso Semanal</h3>
+                        <div class="chart-period">
+                            <button class="period-btn active">7D</button>
+                            <button class="period-btn">30D</button>
+                            <button class="period-btn">90D</button>
+                        </div>
+                    </div>
+                    <canvas id="progressChart" width="400" height="200"></canvas>
+                </div>
+
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h3>Distribuição de Tempo</h3>
+                    </div>
+                    <canvas id="timeChart" width="300" height="200"></canvas>
+                </div>
             </div>
-        </section>
 
-        <section class="goals-section">
-            <h2>Metas do Mês</h2>
-            <ul id="goals-list"></ul>
-            <form id="add-goal-form">
-                <input type="text" id="new-goal" placeholder="Nova meta..." required>
-                <button type="submit">Adicionar Meta</button>
-            </form>
-        </section>
-    </main>
+            <!-- Recent Activity -->
+            <div class="activity-section">
+                <div class="activity-header">
+                    <h3>Atividade Recente</h3>
+                    <a href="#" class="view-all">Ver tudo</a>
+                </div>
+                <div class="activity-list" id="activityList">
+                    <!-- Atividades serão inseridas aqui -->
+                </div>
+            </div>
+        </main>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <script src="js/data.js"></script>
-    <script src="js/utils.js"></script>
-    <script src="js/progress.js"></script>
-    <script src="js/charts.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
